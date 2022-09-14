@@ -6,9 +6,16 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav ms-auto">
-          <a class="nav-link" href="/user-dashboard">Dashboard</a>
+          @if (auth()->check())
+          <a class="nav-link" href="/dashboard">Dashboard</a>
           <a class="nav-link" href="#">Students</a>
-          <a class="nav-link" href="{{'/logout'}}">Logout</a>
+          <a class="nav-link" href="{{'/logout'}}">Logout</a>  
+          @else
+          <a class="nav-link" href="/register">Register</a>
+          <a class="nav-link" href="/">Login</a> 
+              
+          @endif
+          
         </div>
       </div>
     </div>

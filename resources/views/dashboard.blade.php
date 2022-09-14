@@ -2,10 +2,6 @@
 
 @section('content')
 
-@include('nav')
-
-
-
 <div class="container">
     @if (session('message'))
     <div class="alert alert-success">

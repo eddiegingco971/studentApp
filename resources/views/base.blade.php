@@ -12,6 +12,8 @@
 </head>
 <body>
     <div class="wrapper">
+        @include('nav')
+        
         @yield('content')
     </div>
 </body>

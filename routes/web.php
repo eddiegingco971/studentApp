@@ -14,18 +14,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('auth.login');
-});
 
-
+Route::get('/', [AuthController::class, 'loginForm'])->name('login');
+Route::post('/', [AuthController::class, 'login']);
 Route::get('/register', [AuthController::class, 'registerForm']);
 Route::post('/register', [AuthController::class, 'register']);
-Route::get('/login', [AuthController::class, 'loginForm']);
-Route::post('/login', [AuthController::class, 'login']);
 Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 Route::get('/verification/{user}/{token}', [AuthController::class, 'verification']);
 
-Route::get('/user-dashboard', function(){
-    return view('pages.user-dashboard');
+Route::get('/dashboard', function(){
+    return view('dashboard');
 })->middleware('auth');

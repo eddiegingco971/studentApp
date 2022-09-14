@@ -54,7 +54,7 @@
 
                             <div class="d-flex">
                                 <div class="flex-grow-1">
-                                    <a href="/login">Already have an account</a>
+                                    <a href="/">Already have an account</a>
                                 </div>
                                 <button class="btn btn-primary" type="submit">Register</button>
                             </div>

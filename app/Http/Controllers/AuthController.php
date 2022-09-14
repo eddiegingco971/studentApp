@@ -16,12 +16,18 @@ class AuthController extends Controller
      */
     public function loginForm()
     {
-        return view('auth.login');
+        if(auth()->check()){
+            return redirect('/dashboard');
+        }
+            return view('auth.login');
     }
 
     public function registerForm()
     {
-        return view('auth.register');
+        if(auth()->check()){
+            return redirect('/dashboard');
+        }
+            return view('auth.register');
     }
 
     
@@ -48,18 +54,18 @@ class AuthController extends Controller
             $mail->from('gingcoeddie971@gmail.com', 'Student App');
         });
 
-        return redirect('/login')->with('message', 'Your account has been created. Please check your email for verification');
+        return redirect('/')->with('message', 'Your account has been created. Please check your email for verification');
     }
 
     public function verification(User $user, $token){
         if($user->remember_token !== $token){
-            return redirect('/login')->with('error', 'Invalid token. The attached token is invalid or has already been consumed.');
+            return redirect('/')->with('error', 'Invalid token. The attached token is invalid or has already been consumed.');
         }
 
         $user->email_verified_at = now();
         $user->save();
 
-        return redirect('/login')->with('message', 'Your account has been verified. You can login now.');
+        return redirect('/')->with('message', 'Your account has been verified. You can login now.');
     }
 
     public function login(Request $request){
@@ -71,7 +77,7 @@ class AuthController extends Controller
         $user = User::where('email', $request->email)->first();
 
         if(!$user || $user->email_verified_at==null){
-            return redirect('/login')->with('error', 'Sorry your account is not yet verified.');
+            return redirect('/')->with('error', 'Sorry your account is not yet verified.');
         }
         
         $login = auth()->attempt([
@@ -83,12 +89,12 @@ class AuthController extends Controller
             return back()->with('error', 'Invalid Credentials');
         }
 
-        return redirect('/user-dashboard')->with('message', 'Welcome to the Dashboard');
+        return redirect('/dashboard')->with('message', 'Welcome to the Dashboard');
     }
 
     public function logout(){
         auth()->logout();
-        return redirect('/login')->with('message', 'Logged out successfully');
+        return redirect('/')->with('message', 'Logged out successfully');
     }
 
 

@@ -23,7 +23,7 @@
 
                     </div>
                     <div class="card-body">
-                        <form action="{{url('/login')}}" method="post">
+                        <form action="{{url('/')}}" method="post">
                             {{ csrf_field() }}
 
                             <div class="mb-3">
