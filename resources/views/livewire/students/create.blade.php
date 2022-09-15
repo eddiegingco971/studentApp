@@ -1,7 +1,7 @@
 <div>
    <div class="card">
-    <div class="card-header">
-        <h3>Student</h3>
+    <div class="card-header bg-info">
+        <h3>Student Form</h3>
     </div>
     <div class="card-body">
         <div class="form-floating mb-3">

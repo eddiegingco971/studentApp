@@ -1,6 +1,6 @@
 <div>
-    <table class="table table-striped shadow border border-light">
-        <thead class="table table-striped bg-primary">
+    <table class="table table-striped">
+        <thead class="table table-striped bg-info">
             <tr>
                 <th>ID No</th>
                 <th>Student Name</th>
@@ -24,10 +24,10 @@
                     <td>{{ $student->department }}</td>
                     <td>{{ $student->year_level }}</td>
                     <td>
-                        <a href="{{ url('edit', ['student' => $student->id]) }}" class="btn btn-primary">Edit<i class=" fa fa-gear"></i></a>
+                        <a href="{{ url('edit', ['student' => $student->id]) }}" class="btn btn-secondary">Edit</a>
                     </td>
                     <td>
-                        <a href="{{ url('delete', ['student' => $student->id]) }}" class="btn btn-danger">Delete<i class=" fa fa-trash"></i></a>
+                        <a href="{{ url('delete', ['student' => $student->id]) }}" class="btn btn-danger">Delete</i></a>
                     </td>
                 </tr>
             @endforeach

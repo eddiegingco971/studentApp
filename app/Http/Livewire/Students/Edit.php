@@ -39,7 +39,7 @@ class Edit extends Component
             'year_level'        => $this->year_level
         ]);
 
-        return redirect('/dashboard')->with('message', 'Updated Successfully');
+        return redirect('/dashboard')->with('message', $this->student->name .' updated successfully');
     }
 
     public function back() {

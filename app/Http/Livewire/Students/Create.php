@@ -29,7 +29,7 @@ class Create extends Component
                 'year_level'        => $this->year_level
             ]);
 
-            return redirect('/dashboard')->with('message', 'Successfully Added');
+            return redirect('/dashboard')->with('message', $this->name . ' added successfully');
     }
 
     public function updated($propertyEmail)

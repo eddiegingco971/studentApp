@@ -16,7 +16,7 @@ class Delete extends Component
     public function delete() {
         $this->student->delete();
 
-        return redirect('/dashboard')->with('message', 'Deleted Successfully');
+        return redirect('/dashboard')->with('message', $this->student->name . ' deleted successfully');
     }
 
     public function back() {
