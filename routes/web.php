@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\StudentController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -22,6 +23,16 @@ Route::post('/register', [AuthController::class, 'register']);
 Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 Route::get('/verification/{user}/{token}', [AuthController::class, 'verification']);
 
-Route::get('/dashboard', function(){
-    return view('dashboard');
-})->middleware('auth');
+// Route::get('/dashboard', function(){
+//     return view('dashboard');
+// })->middleware('auth');
+
+Route::group(['middleware' => 'auth'], function () {
+    Route::get('/dashboard', function() {
+        return view('dashboard');
+    });
+
+    Route::get('/student', [StudentController::class, 'index']);
+    Route::get('/edit/{student}', [StudentController::class, 'edit']);
+    Route::get('/delete/{student}', [StudentController::class, 'destroy']);
+});

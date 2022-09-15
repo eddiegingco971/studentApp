@@ -16,14 +16,12 @@
     @endif 
 
     <div class="row">
-        <div class="card mt-3">
-            <div class="card-header">
-                <div class="card-title">
-                    <h1>DASHBOARD</h1>
-                </div>
-                <div class="card-body">Welcoming</div>
+            <div class="col-md-4">
+                <livewire:students.create/>
             </div>
-        </div>
+            <div class="col-md-8">
+                <livewire:students.index/>
+            </div>
     </div>
 </div>
 
